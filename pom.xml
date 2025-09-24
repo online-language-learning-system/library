@@ -11,8 +11,11 @@
 	<groupId>com.hub</groupId>
 	<artifactId>common-library</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
 	<name>common-library</name>
 	<description>Common Library Service</description>
+
 	<url/>
 	<licenses>
 		<license/>
@@ -26,6 +29,7 @@
 		<tag/>
 		<url/>
 	</scm>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
