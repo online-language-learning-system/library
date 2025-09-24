@@ -1,27 +1,21 @@
-name: JAR Build and Deploy (CI)
-
+name: Publish package to GitHub Packages
 on:
-  push:
-    branches: [ "main" ]
-
+  release:
+    types: [created]
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: temurin
           server-id: github
-          settings-path: ${{ github.workspace }}
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: common-library
-          path: ${{ github.workspace }}/target/*.jar
-
+          server-username: ${{ github.actor }}
+          server-password: ${{ secrets.GHCR_PAT }}
+      - name: Publish package
+        run: mvn --batch-mode deploy

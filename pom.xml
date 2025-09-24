@@ -60,11 +60,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>com.springsource.repository.maven.release</id>
-			<url>http://maven.springframework.org/release/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/online-language-learning-system/library</url>
 		</repository>
 	</distributionManagement>
 
@@ -73,14 +71,10 @@
 			<plugin>
 				<!--
 					NO USING spring-boot-maven-plugin FOR LIBRARY
+
                		<groupId>org.springframework.boot</groupId>
                		<artifactId>spring-boot-maven-plugin</artifactId>
                	-->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-           </plugin>
-
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -91,7 +85,7 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
-			</plugin>
+           </plugin>
        </plugins>
    </build>
 
