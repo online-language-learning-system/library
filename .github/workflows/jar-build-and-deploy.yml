@@ -25,3 +25,9 @@ jobs:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
 
+      - name: Upload JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: common-library
+          path: ${{ github.workspace }}/target/*.jar
+
