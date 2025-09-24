@@ -62,11 +62,10 @@
 		<repository>
 			<id>github</id>
 			<url>https://maven.pkg.github.com/online-language-learning-system/library</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
-		<snapshotRepository>
-			<id>github</id>
-			<url>https://maven.pkg.github.com/online-language-learning-system/library</url>
-		</snapshotRepository>
 	</distributionManagement>
 
 	<build>
