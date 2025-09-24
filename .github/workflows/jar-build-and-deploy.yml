@@ -1,11 +1,11 @@
-name: Build and Deploy common-library
+name: JAR Build and Deploy (CI)
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,7 +19,7 @@ jobs:
           server-id: github
           settings-path: ${{ github.workspace }}
 
-      - name: Build with Maven
+      - name: Build JAR
         run: mvn clean package -DskipTests
 
       - name: Deploy to GitHub Packages
